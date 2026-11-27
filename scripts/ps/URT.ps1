@@ -1,7 +1,7 @@
 ﻿<#
 .SYNOPSIS
     Universal Rename Tool (U.R.T.) v2.0
-    Developed by SteveTheKiller | Updated: 2026-11-19
+    Originally developed by Steve the Killer | Maintained by Spectra Networks | Updated: 2026-11-19
 .DESCRIPTION
     Renames local or domain-joined computers from an admin shell with
     no GUI popups. Collects domain credentials inline if needed,

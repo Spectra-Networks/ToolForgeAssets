@@ -1,69 +1,48 @@
-# Contributing to killer-scripts
+# Contributing to ToolForge Assets
 
-I handle most development myself. Bug reports and feature requests help me decide what to work on, but opening an issue does not assign the implementation to its author.
+ToolForge Assets is the Spectra Networks technician toolkit. These scripts run on client machines, often unattended and as SYSTEM, in regulated environments such as healthcare, pharmaceutical, biotech, and financial services. Every change should leave a client machine in a known, verifiable state.
 
-## Before you start
+## Workflow
 
-Search the existing issues first. Put feature requests in an issue and explain the problem, the intended workflow, and why the current behavior falls short. Wait for me to approve the scope and invite implementation before starting feature work or opening a feature PR.
+- Open an issue, or talk it through with the team first, before starting a new script, a new dependency, an architectural change, or anything that changes how a script treats user data.
+- No advance discussion is needed for a focused bug fix that keeps the intended behavior, a regression test, or a documentation correction.
+- Address one coherent problem per PR. Keep unrelated formatting, cleanup, file moves, and refactoring in separate PRs.
+- Keep behavior outside the scope of the change as it is. Reuse the existing structure and conventions described below.
+- Don't change a script's version or `Updated:` date unless the PR is release work.
+- Avoid automatic issue-closing keywords (`Fixes #12`) in commits and PR descriptions. Close issues by hand once the fix is confirmed.
+- Commit messages are short imperative summaries, usually naming the script: `Fix TICK config exit code`.
 
-The same approval is required for architectural changes, new dependencies, substantial UI rewrites, changes to data preservation or compatibility, and work intended for a future milestone. A draft PR is still a PR; please discuss the proposal first.
+## Repository layout
 
-You do not need advance permission for:
+Scripts are grouped by language under `scripts/`. PowerShell scripts live in `scripts/ps/`, with their tests in `scripts/ps/tests/` and their catalog in `scripts/ps/descriptions.json`. When adding a new language or platform, give it its own folder under `scripts/`, keep its tests and metadata inside that folder, and document it in the README.
 
-- A focused bug fix that preserves the intended behavior
-- A regression test
-- Translation work
-- A documentation correction
-- A small theme, layout, or accessibility fix that preserves the established design
+## Testing and verification
 
-If a small fix grows into a redesign, pause and discuss the larger change in an issue. Unrequested features, speculative rewrites, and large chains of dependent PRs may be declined without a full code review. Approval to work on an issue does not guarantee that a PR will be merged.
+Add a focused regression test for a reproducible bug when there is a useful test boundary. A passing test suite does not prove a script works on a real machine: check the affected workflow in a disposable VM before it reaches a client.
 
-## Keep changes focused
-
-Address one coherent problem per PR. Keep unrelated formatting, cleanup, file moves, dependency updates, and refactoring separate.
-
-Preserve behavior outside the approved scope. Reuse the existing architecture, controls, styles, spacing, and resources. Explain the specific problem before changing an established design or a boundary between components.
-
-Do not bump versions, change release dates, prepare packages, or rewrite release notes unless the contribution is specifically approved release work. Ask which branch to target before starting an approved feature.
-
-## Testing
-
-Follow the repository's build and test instructions. Add a focused regression test for a reproducible bug when there is a useful test boundary.
-
-Test the actual workflow affected by the change. A successful build alone does not prove that a UI, save path, installer, or hardware interaction works. For visible changes, check keyboard and mouse use, supported themes, scaling, and narrow windows where applicable. Include before-and-after images when they help explain the change.
-
-State which checks passed and which paths you could not test. Use fabricated or safely redacted fixtures, and keep private data and credentials out of issues, logs, and test files.
-
-Translation-only and documentation-only changes do not need a full application build unless they affect generated files or runtime behavior. Preserve resource keys and format placeholders, and follow the repository's translation guide when one exists.
+In the PR, state which checks passed and which paths you could not test. Use fabricated or redacted fixtures. Never put client names, hostnames, credentials, recovery keys, or other client data in issues, logs, test files, or commits.
 
 ## Dependencies and data safety
 
-Discuss new or replacement dependencies before adding them. Explain why they are needed, their license, maintenance status, platform support, size, native requirements, and security or update impact.
+Discuss new or replacement dependencies before adding them: why they're needed, their license, maintenance status, size, and security or update impact.
 
-Do not suppress vulnerability warnings or weaken validation to make a sample pass. Preserve existing files and user data when an operation fails, and explain any compatibility or data-loss risk.
+Don't suppress warnings or weaken validation to make a test pass. Keep existing files and user data intact when an operation fails, and call out any data-loss or compatibility risk in the PR.
 
-## Pull request descriptions
+## PR descriptions
 
 Include:
 
 - The problem and the related issue
 - What changed and why
-- How you verified it
-- Images or small sample files when relevant
-- Known limitations and untested behavior
-- The approval for feature work or other substantial changes
+- What machine changes the script makes, and how failures are handled
+- How you verified it, and what you couldn't test
+- Known limitations
 
-Avoid automatic issue-closing keywords in PR descriptions and commits. Bug reports stay open for reporter confirmation when practical.
-
-Be prepared to revise an approved contribution after review. Contributions must be compatible with the repository's existing license; these guidelines do not change that license.
-
-## Project-specific guidance
-
-Describe the machine changes a script makes and how failures are handled. Use a disposable environment for scripts that change system settings or remove software or data.
+## PowerShell scripts
 
 ### Runtime contract
 
-Every script must keep working on Windows PowerShell 5.1 and in Kaseya LiveConnect and other RMM consoles. That covers `-File`, `-Command`, `-EncodedCommand`, pasted input, running as SYSTEM and the 32-bit host. Keep each script a single self-contained file with no module dependencies and no syntax newer than 5.1. Prompts must not hang without a console, and an unanswered destructive choice must default to doing nothing.
+Every script in `scripts/ps/` must keep working on Windows PowerShell 5.1 and in Kaseya LiveConnect and other RMM consoles. That covers `-File`, `-Command`, `-EncodedCommand`, pasted input, running as SYSTEM, and the 32-bit host. Keep each script a single self-contained file with no module dependencies and no syntax newer than 5.1. Prompts must not hang without a console, and an unanswered destructive choice must default to doing nothing.
 
 ### Entry point and exit codes
 
@@ -73,7 +52,7 @@ Each script keeps its body in `Invoke-<Name>Main` and ends with:
 if (-not $global:KillerScriptsTestMode) { Invoke-<Name>Main }
 ```
 
-Exit through `Exit-KillerScript <code>` instead of calling `exit` directly. In test mode it throws `KILLERSCRIPT_EXIT:<code>` so tests can load a script without running it.
+Exit through `Exit-KillerScript <code>` instead of calling `exit` directly. In test mode it throws `KILLERSCRIPT_EXIT:<code>` so tests can load a script without running it. (These identifiers come from the upstream project and are kept as-is.)
 
 | Code | Meaning |
 | --- | --- |
@@ -87,10 +66,14 @@ The final status line must agree with the exit code.
 
 ### Running the tests
 
-The tests use Pester 5 under both editions. Shipped scripts never load it. Run the suite with:
+The tests use Pester 5 under both Windows PowerShell 5.1 and PowerShell 7, on Windows. Shipped scripts never load Pester. Run the suite with:
 
 ```powershell
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\tests\Run-Tests.ps1
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\scripts\ps\tests\Run-Tests.ps1
 ```
 
-Test files dot-source `tests\TestHelpers.ps1` and call `Initialize-KillerSafetyNet` in `BeforeAll`. Any destructive cmdlet, native tool or network call the test hasn't mocked then throws, and file and registry writes are allowed only in `TestDrive` and `TestRegistry`. Real Windows behavior is checked in a disposable VM.
+Test files dot-source `scripts\ps\tests\TestHelpers.ps1` and call `Initialize-KillerSafetyNet` in `BeforeAll`. Any destructive cmdlet, native tool, or network call the test hasn't mocked then throws, and file and registry writes are allowed only in `TestDrive` and `TestRegistry`.
+
+### Adding a script
+
+Add the script to `scripts/ps/`, add `scripts/ps/tests/<NAME>.Tests.ps1`, bump the script count in `scripts/ps/tests/Syntax.Tests.ps1`, add an entry to `scripts/ps/descriptions.json`, and add a README section, a Contents row, and update the `Scripts-NN` badge.

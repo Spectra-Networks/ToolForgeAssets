@@ -1,21 +1,33 @@
-<div align="center">
-
-[![Killer Scripts](header.png)](https://killertools.net/killer-scripts)
-
-</div>
+# ToolForge Assets
 
 ![PowerShell](https://img.shields.io/badge/PowerShell-5.1%20%7C%207-5391FE?logo=powershell&logoColor=white)
 ![Windows](https://img.shields.io/badge/Windows-10%20%7C%2011-0078D6?logo=windows&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-blue)
 ![Scripts](https://img.shields.io/badge/Scripts-19-brightgreen)
 
-A collection of PowerShell scripts for Windows administration, deployment, repair, and hardening. Each script is a single self-contained file with no module dependencies.
+ToolForge Assets is the Spectra Networks technician toolkit: scripts and supporting assets for the Managed IT, Cybersecurity, and compliance work we do for our clients. It is organized by language and platform so the collection can grow beyond its starting set of Windows PowerShell tools.
 
-**Compatibility:** Windows PowerShell 5.1, PowerShell 7, and Kaseya LiveConnect and other RMM consoles, including runs as SYSTEM. Tested on Windows 10 and Windows 11. Every script except BEAM and ORCA requires an elevated session, and DEPOT relaunches itself elevated.
+## Repository layout
+
+| Path | Contents |
+| --- | --- |
+| [`scripts/ps/`](scripts/ps/) | PowerShell scripts for Windows administration, deployment, repair, and hardening |
+| [`scripts/ps/tests/`](scripts/ps/tests/) | Pester 5 test suite for the PowerShell scripts |
+| [`scripts/ps/descriptions.json`](scripts/ps/descriptions.json) | Full name and one-line summary of each PowerShell script |
+
+## Credits
+
+The PowerShell scripts began as a fork of [Killer Scripts](https://killertools.net/killer-scripts) by Steve the Killer, released under the MIT License. The original copyright notice is kept in [LICENSE](LICENSE).
 
 **License:** MIT. See [LICENSE](LICENSE).
 
 ---
+
+# PowerShell scripts
+
+Every script in `scripts/ps/` is a single self-contained file with no module dependencies.
+
+**Compatibility:** Windows PowerShell 5.1, PowerShell 7, and Kaseya LiveConnect and other RMM consoles, including runs as SYSTEM. Tested on Windows 10 and Windows 11. Every script except BEAM and ORCA requires an elevated session, and DEPOT relaunches itself elevated.
 
 ## Exit codes
 

@@ -1,7 +1,7 @@
 ﻿<#
 .SYNOPSIS
     PRINTER RESPONSE & INTERFACE NETWORK TOOL (PRINT) v2.0
-    Developed by SteveTheKiller | Updated: 2026-11-19
+    Originally developed by Steve the Killer | Maintained by Spectra Networks | Updated: 2026-11-19
 .DESCRIPTION
     Printer management utility that inventories, adds, and removes devices. Features a
     multi-threaded network scanner that discovers printers on the local subnet via port

@@ -3,15 +3,15 @@
 # PowerShell 5.1 as well as 7, so syntax newer than 5.1 fails here.
 
 BeforeDiscovery {
-    $repo = Split-Path -Parent $PSScriptRoot
-    $script:Scripts = Get-ChildItem -LiteralPath $repo -Filter '*.ps1' -File |
+    $dir = Split-Path -Parent $PSScriptRoot
+    $script:Scripts = Get-ChildItem -LiteralPath $dir -Filter '*.ps1' -File |
         ForEach-Object { @{ Name = $_.Name; Path = $_.FullName } }
 }
 
 Describe 'Shipped script syntax' {
     It 'finds all 19 shipped scripts' {
-        $repo = Split-Path -Parent $PSScriptRoot
-        @(Get-ChildItem -LiteralPath $repo -Filter '*.ps1' -File).Count | Should -Be 19
+        $dir = Split-Path -Parent $PSScriptRoot
+        @(Get-ChildItem -LiteralPath $dir -Filter '*.ps1' -File).Count | Should -Be 19
     }
 
     It '<Name> parses with zero errors' -ForEach $Scripts {

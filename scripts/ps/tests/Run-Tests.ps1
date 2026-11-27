@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Runs the killer-scripts test suite under Windows PowerShell 5.1 and PowerShell 7.
+    Runs the ToolForge Assets test suite under Windows PowerShell 5.1 and PowerShell 7.
 .DESCRIPTION
     Test-only. Needs Pester 5 installed for both editions. Shipped scripts never depend on it.
     Exit code 0 means every edition passed. 1 means at least one test failed, or that an
