@@ -1,7 +1,7 @@
 ﻿<#
 .SYNOPSIS
     Trigger Immediate Clock Kickstart (TICK) v2.0
-    Developed by Steve the Killer | Updated: 2026-11-19
+    Originally developed by Steve the Killer | Maintained by Spectra Networks | Updated: 2026-11-19
 .DESCRIPTION
     Resets and resyncs the Windows Time service against a chosen NTP peer,
     then reports before/after timestamps with a plain-English summary of

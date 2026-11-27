@@ -1,7 +1,7 @@
 ﻿<#
 .SYNOPSIS
     Bulk Endpoint App Mover (BEAM) v2.00
-    Created by Steve the Killer | Updated: 2026-11-18
+    Originally developed by Steve the Killer | Maintained by Spectra Networks | Updated: 2026-11-18
 .DESCRIPTION
     Packages any local or hosted .exe / .msi as an Intune Win32 app and deploys it to
     one or more Entra-joined devices as SYSTEM. No LAN, no stored credentials. For

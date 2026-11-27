@@ -1,7 +1,7 @@
 ﻿<#
 .SYNOPSIS
     BitLocker Encryption, Recovery, & Escrow Tool (BERET) v7.0
-    Developed by SteveTheKiller | Updated: 2026-11-18
+    Originally developed by Steve the Killer | Maintained by Spectra Networks | Updated: 2026-11-18
 .DESCRIPTION
     Interactive BitLocker lifecycle manager that prompts to choose
     between FIPS (XTS-AES-256) and Standard (XTS-AES-128) mode. Initializes

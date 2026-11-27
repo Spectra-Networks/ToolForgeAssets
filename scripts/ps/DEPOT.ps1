@@ -1,7 +1,7 @@
 ﻿<#
 .SYNOPSIS
     Deployment & Endpoint Provisioning Operations Tool (D.E.P.O.T.) v2.0
-    Developed by SteveTheKiller | Updated: 2026-11-18
+    Originally developed by Steve the Killer | Maintained by Spectra Networks | Updated: 2026-11-18
 .DESCRIPTION
     Full new-machine provisioning tool that silently deploys M365,
     Teams, OneDrive, Chrome, Acrobat Reader, Zoom, and 7-Zip with

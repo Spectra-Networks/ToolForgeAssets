@@ -1,12 +1,13 @@
-# Shared test helpers for killer-scripts. Test-only: shipped scripts never load this file.
+# Shared test helpers for ToolForge Assets. Test-only: shipped scripts never load this file.
 # Dot-source inside BeforeAll:  . (Join-Path $PSScriptRoot 'TestHelpers.ps1')
 
-$script:KillerRepoRoot = Split-Path -Parent $PSScriptRoot
+# The shipped scripts live one level up, in scripts/ps.
+$script:KillerScriptDir = Split-Path -Parent $PSScriptRoot
 
 function Get-KillerScriptPath {
     # Full path of a shipped script by name, for example Get-KillerScriptPath WURSA.
     param([Parameter(Mandatory)][string]$Name)
-    $p = Join-Path $script:KillerRepoRoot ("{0}.ps1" -f $Name)
+    $p = Join-Path $script:KillerScriptDir ("{0}.ps1" -f $Name)
     if (-not (Test-Path -LiteralPath $p)) { throw "No such script: $p" }
     $p
 }

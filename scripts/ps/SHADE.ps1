@@ -1,7 +1,7 @@
 ﻿<#
 .SYNOPSIS
     System Hardening Against Data Exposure (SHADE) v2.1
-    Developed by Steve the Killer | Updated: 2026-11-18
+    Originally developed by Steve the Killer | Maintained by Spectra Networks | Updated: 2026-11-18
 .DESCRIPTION
     Comprehensive Windows 10/11 privacy hardening for security-conscious
     environments. Disables location tracking, telemetry services, advertising

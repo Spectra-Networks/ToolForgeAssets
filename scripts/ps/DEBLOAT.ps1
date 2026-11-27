@@ -1,7 +1,7 @@
 ﻿<#
 .NAME
     Deployment Environment Bloatware Liquidator & Optimized Automated Toolkit (D.E.B.L.O.A.T.) v2.3
-    Developed by Steve the Killer | Updated: 2026-11-18
+    Originally developed by Steve the Killer | Maintained by Spectra Networks | Updated: 2026-11-18
 .DESCRIPTION
     Standardizes Windows 11 by removing OEM bloat (HP, Dell,
     ASUS/Acer), AI/Recall features, and sponsored consumer content.

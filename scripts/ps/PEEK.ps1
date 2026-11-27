@@ -1,7 +1,7 @@
 ﻿<#
 .SYNOPSIS
     Patch & Event Examination Kit (P.E.E.K.) v2.0
-    Created by Steve the Killer | Updated: 2026-11-19
+    Originally developed by Steve the Killer | Maintained by Spectra Networks | Updated: 2026-11-19
 .DESCRIPTION
     Read-only live Windows Update and Windows Setup servicing monitor for
     remote support. Correlates WindowsUpdateClient events, servicing processes,

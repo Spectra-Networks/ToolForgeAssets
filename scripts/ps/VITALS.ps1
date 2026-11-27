@@ -1,7 +1,7 @@
 ﻿<#
 .SYNOPSIS
     Visual Interface for Technical Asset & Logistics Summary (V.I.T.A.L.S.) v3.0
-    Developed by SteveTheKiller | Updated: 2026-11-19
+    Originally developed by Steve the Killer | Maintained by Spectra Networks | Updated: 2026-11-19
 .DESCRIPTION
     Collects and displays a full hardware and network snapshot:
     make/model/serial, CPU/RAM/GPU specs, disk health, BitLocker status

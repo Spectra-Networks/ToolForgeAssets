@@ -1,7 +1,7 @@
 ﻿<#
 .SYNOPSIS
     Output Device Diagnostic (ODD) v2.0
-    Developed by SteveTheKiller | Updated: 2026-11-19
+    Originally developed by Steve the Killer | Maintained by Spectra Networks | Updated: 2026-11-19
 .DESCRIPTION
     Inventories all physical, USB, and Bluetooth audio devices with
     health status and driver versions across input and output categories.

@@ -1,7 +1,7 @@
 ﻿<#
 .SYNOPSIS
     Windows Update, Repair, & System Alignment (W.U.R.S.A.) v4.0
-    Developed by Steve the Killer | Updated: 2026-11-18
+    Originally developed by Steve the Killer | Maintained by Spectra Networks | Updated: 2026-11-18
 .DESCRIPTION
     Enforces OS patches, OEM driver updates, and Chocolatey third-party app upgrades
     (skips in-use apps). Performs unattended feature upgrades to 26H2, dispatched to a

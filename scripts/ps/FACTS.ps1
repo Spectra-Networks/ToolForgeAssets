@@ -1,7 +1,7 @@
 ﻿<#
 .SYNOPSIS
     Foxit Audit and Control Task Script (FACTS) v3.0
-    Developed by SteveTheKiller | Updated: 2026-11-19
+    Originally developed by Steve the Killer | Maintained by Spectra Networks | Updated: 2026-11-19
 .DESCRIPTION
     Audits for Foxit PDF installations and permanently blocks
     auto-updates via registry hardening, service suppression, and

@@ -1,7 +1,7 @@
 ﻿<#
 .SYNOPSIS
     Microsoft Application Cleanse & Eradication (MACE) v2.0
-    Developed by SteveTheKiller | Updated: 2026-11-18
+    Originally developed by Steve the Killer | Maintained by Spectra Networks | Updated: 2026-11-18
 .DESCRIPTION
     Completely removes OneDrive, New Outlook, Office/M365, Microsoft
     Project, and Microsoft Teams from a Windows endpoint. Clears all

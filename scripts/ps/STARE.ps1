@@ -1,7 +1,7 @@
 ﻿<#
 .SYNOPSIS
     Scheduled Task Administration & Routine Executor (S.T.A.R.E.) v2.0
-    Developed by SteveTheKiller | Updated: 2026-11-19
+    Originally developed by Steve the Killer | Maintained by Spectra Networks | Updated: 2026-11-19
 .DESCRIPTION
     A clean, interactive terminal wizard that makes Windows Scheduled
     Task management fast and reliable for technicians. Supports Daily,

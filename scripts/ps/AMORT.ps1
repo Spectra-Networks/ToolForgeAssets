@@ -1,7 +1,7 @@
 ﻿<#
 .SYNOPSIS
     Advanced Maintenance, Optimization, and Repair Tool (AMORT) v18.0
-    Developed by Steve the Killer | Updated: 2026-11-18
+    Originally developed by Steve the Killer | Maintained by Spectra Networks | Updated: 2026-11-18
 .DESCRIPTION
     One-step Windows 10/11 disk-space reclamation and integrity repair for MSP
     field and remote use. Built to be safe on personal and business machines

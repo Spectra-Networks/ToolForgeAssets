@@ -1,7 +1,7 @@
 ﻿<#
 .SYNOPSIS
     Profile Removal Utility for Neglected Entries (PRUNE) v2.0
-    Developed by SteveTheKiller | Updated: 2026-11-18
+    Originally developed by Steve the Killer | Maintained by Spectra Networks | Updated: 2026-11-18
 .DESCRIPTION
     Scans local Windows user profiles and displays them sorted by last-used
     date, flagging stale, orphaned, and disabled accounts for safe removal.

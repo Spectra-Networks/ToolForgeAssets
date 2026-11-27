@@ -1,7 +1,7 @@
 ﻿<#
 .SYNOPSIS
     Definition Enforcement & Full Endpoint Network Defense (D.E.F.E.N.D.) v3.0
-    Developed by SteveTheKiller | Updated: 2026-11-19
+    Originally developed by Steve the Killer | Maintained by Spectra Networks | Updated: 2026-11-19
 .DESCRIPTION
     Audits and enforces kernel-level Windows security including TPM,
     Secure Boot, HVCI, and Defender hardening. Syncs threat definitions,
